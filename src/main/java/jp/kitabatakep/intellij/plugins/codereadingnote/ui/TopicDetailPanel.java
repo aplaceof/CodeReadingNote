@@ -25,6 +25,7 @@ import jp.kitabatakep.intellij.plugins.codereadingnote.Topic;
 import jp.kitabatakep.intellij.plugins.codereadingnote.TopicLine;
 import jp.kitabatakep.intellij.plugins.codereadingnote.TopicNotifier;
 import jp.kitabatakep.intellij.plugins.codereadingnote.actions.TopicAddAction;
+import jp.kitabatakep.intellij.plugins.codereadingnote.actions.TopicLineAddDescAction;
 import jp.kitabatakep.intellij.plugins.codereadingnote.actions.TopicLineMoveToGroupAction;
 import jp.kitabatakep.intellij.plugins.codereadingnote.actions.TopicLineRemoveAction;
 import javax.swing.*;
@@ -90,6 +91,9 @@ class TopicDetailPanel extends JPanel
             public void lineAdded(Topic _topic, TopicLine _topicLine)
             {
                 if (_topic == topic) {
+                    System.out.println(" add a  new line **** ");
+                    System.out.println("sss" + _topicLine.url());
+//                    _topicLine.
                     topicLineListModel.addElement(_topicLine);
                 }
             }
@@ -151,6 +155,7 @@ class TopicDetailPanel extends JPanel
                 if (SwingUtilities.isRightMouseButton(e)) {
                     DefaultActionGroup actions = new DefaultActionGroup();
                     actions.add(new TopicLineRemoveAction(project, (v) -> new Pair<>(topic, topicLine)));
+                    actions.add(new TopicLineAddDescAction(project, (v) -> new Pair<>(topic, topicLine)));
                     actions.add(new TopicLineMoveToGroupAction(topicLine));
                     JBPopupFactory.getInstance().createActionGroupPopup(
                         null,
@@ -203,6 +208,7 @@ class TopicDetailPanel extends JPanel
         noteArea.setDocument(EditorFactory.getInstance().createDocument(topic.note()));
         noteArea.getDocument().addDocumentListener(new NoteAreaListener(this));
 
+        //  init the  topic file list
         topicLineListModel.clear();
         Iterator<TopicLine> iterator = topic.linesIterator();
         while (iterator.hasNext()) {
@@ -238,11 +244,12 @@ class TopicDetailPanel extends JPanel
                 setIcon(fileOrDir.getIcon(0));
             }
 
+            // add description for file list what you see what you get
             if (topicLine.isValid()) {
-                append(file.getName() + ":" + (topicLine.line()+1));
+                append( topicLine.getDescription()  + file.getName() + ":" + (topicLine.line()+1));
                 append(" (" + topicLine.pathForDisplay() + ")", SimpleTextAttributes.GRAY_ATTRIBUTES);
             } else {
-                append(topicLine.pathForDisplay() + ":" + (topicLine.line()+1), SimpleTextAttributes.ERROR_ATTRIBUTES);
+                append(topicLine.getDescription() +  topicLine.pathForDisplay() + ":" + (topicLine.line()+1), SimpleTextAttributes.ERROR_ATTRIBUTES);
             }
 
             setForeground(UIUtil.getListSelectionForeground(isSelected));

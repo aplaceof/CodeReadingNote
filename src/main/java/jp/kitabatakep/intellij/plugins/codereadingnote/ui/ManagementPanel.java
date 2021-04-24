@@ -44,7 +44,9 @@ public class ManagementPanel extends JPanel
         splitPane.setSplitterProportionKey(AppConstants.appName + "ManagementPanel.splitter");
         splitPane.setHonorComponentsMinimumSize(false);
 
+        //  topic file list
         splitPane.setFirstComponent(new JBScrollPane(topicList));
+        //  topic file  detail note
         splitPane.setSecondComponent(topicDetailPanel);
 
         add(actionToolBar(), BorderLayout.PAGE_START);

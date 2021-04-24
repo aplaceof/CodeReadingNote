@@ -16,6 +16,7 @@ public class TopicLine implements Navigatable
     private VirtualFile file;
     private String note;
     private Project project;
+    private String description = " ";
     private Topic topic;
     private boolean inProject;
     private String relativePath;
@@ -72,6 +73,14 @@ public class TopicLine implements Navigatable
     }
 
     public String url() { return url; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) {
+        if( description != null  || !description.isEmpty()) {
+            this.description =  description +  "  ";
+        } else {
+            this.description = "" ;
+        }
+    }
 
     public String pathForDisplay()
     {
