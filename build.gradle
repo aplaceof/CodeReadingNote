@@ -4,12 +4,13 @@ plugins {
 }
 
 group 'china.aplaceof'
-version '2020.4'
+version '2019.2'
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
     mavenCentral()
 }
 
@@ -19,7 +20,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2020.4'
+    version '2019.2'
 }
 
 //runIde {
