@@ -30,6 +30,7 @@ public class TopicListImporter
                 ArrayList<TopicLine> topicLines = new ArrayList<>();
                 for (Element topicLineElement : topicLinesElement.getChildren("topicLine")) {
                     String lineString = topicLineElement.getChild("line").getText();
+                    String description = topicLineElement.getChild("description").getText();
                     String inProject = topicLineElement.getChild("inProject").getText();
                     TopicLine topicLine = TopicLine.createByImport(
                         project,
@@ -40,6 +41,7 @@ public class TopicListImporter
                         inProject.equals("true"),
                         topicLineElement.getChild("relativePath").getText()
                     );
+                    topicLine.setDescription(description);  // add description
                     topicLines.add(topicLine);
                 }
                 topic.setLines(topicLines);
