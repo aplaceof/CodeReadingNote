@@ -1,5 +1,5 @@
 # CodeReadingNote
-This is a note tools  for specific  line of the file, you can use it to add folder for what you  use  recently or frecently. 
+This is a  idea note plugin  for specific  line of the file, you can use it to add folder for what you  use recently or frecently.  This plugin is  an optimization for the origin "CodeReadingNote" (https://github.com/kitabatake/CodeReadingNote). Thank for kitabatake's contribution.
 ## usage 
 ### 1. add description folder 
 
