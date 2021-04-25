@@ -33,3 +33,7 @@ This is a optimization for the origin plugin "code reading note", you can add br
 <p align="center">
   <img src="pic/addDesc2.jpg" height="300"  />
 </p>
+
+### release package
+
+There are some release version of this plugin for IDEA with different version under release directory.
