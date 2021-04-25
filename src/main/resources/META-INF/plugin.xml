@@ -2,7 +2,7 @@
     <id>jp.kitabatakep.intellij.plugins.CodeReadingNote</id>
     <name>Code Reading Note</name>
     <vendor email="aplaceof.@gmail.com">aplaceof</vendor>
-    <version>2020.1</version>
+    <version>2019.1</version>
     <idea-version since-build="211"/>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html

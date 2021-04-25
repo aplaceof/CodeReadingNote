@@ -69,6 +69,7 @@ public class TopicLineAddDescAction extends AnAction
                 }
             }
         });
+         desc.setText(tl.getDescription());
          f.setLayout(new GridLayout(2,2));// set layout
          f.add(desc);
          f.setSize(300,100);
